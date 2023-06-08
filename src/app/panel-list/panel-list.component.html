@@ -1,0 +1,22 @@
+<table>
+    <thead>
+      <tr>
+        <th>Panel Name</th>
+        <th>Mac Id</th>
+        <th>Lat</th>
+        <th>Long</th>
+        <th>Location</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let panel of panels">
+        <td (click)="openSidebar(panel)">{{ panel['panel_name'] }}</td>
+        <td>{{ panel['mac_id'] }}</td>
+        <td>{{ panel['Lat'] }}</td>
+        <td>{{ panel['Lng'] }}</td>
+        <td><button (click)="openMapSidebar(panel)">Show Map</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <app-panel-details [panel]="selectedPanel" *ngIf="sidebarOpen" (data)="close($event)"></app-panel-details>
+  <app-map-sidebar [panel]="selectedPanel" *ngIf="sidebarOpenMap" (mapClose)="closeMap($event)"></app-map-sidebar>

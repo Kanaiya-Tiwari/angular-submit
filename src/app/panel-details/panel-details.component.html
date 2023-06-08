@@ -1,0 +1,26 @@
+<div class="sidebar" >
+   
+    <table>
+      <tr>
+        <th>Parameters</th>
+        <th>R Phase</th>
+      </tr>
+      <tr>
+        <td>Voltage Status</td>
+        <td>{{ panel['r_volt_status'] }}</td>
+      </tr>
+      <tr>
+        <td>MCB Status</td>
+        <td>{{ panel['r_mcb_status'] }}</td>
+      </tr>
+      <tr>
+        <td>Load Status</td>
+        <td>{{ panel['r_load_status'] }}</td>
+      </tr>
+      <tr>
+        <td>PF Status</td>
+        <td>{{ panel['r_pf_status'] }}</td>
+      </tr>
+    </table>
+    <button (click)="closeSidebar()">Close</button>
+  </div>
