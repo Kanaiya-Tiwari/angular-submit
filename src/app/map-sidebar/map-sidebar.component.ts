@@ -9,11 +9,17 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class MapSidebarComponent implements OnInit {
   @Input() panel!: any;
   @Output() mapClose= new EventEmitter<boolean>();
-  center!: google.maps.LatLngLiteral
+  center!: google.maps.LatLngLiteral;
+  mapPosition!: google.maps.LatLngLiteral;
+  markerInfo: boolean=false;
   ngOnInit() {
     this.center ={
       lat: this.panel['Lat'],
       lng: this.panel['Lng']
+  };
+  this.mapPosition = {
+    lat: this.panel['Lat'],
+    lng: this.panel['Lng']
   };
   }   
   
@@ -27,5 +33,8 @@ export class MapSidebarComponent implements OnInit {
   }
   closeSidebar() {
     this.mapClose.emit(false)
+  }
+  showMarkerInfo(event: any) {
+    this.markerInfo = !this.markerInfo;
   }
 }

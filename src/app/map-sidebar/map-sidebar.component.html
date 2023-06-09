@@ -6,6 +6,12 @@
             [zoom]="zoom"
             (mapClick)="moveMap($event)"
             (mapMousemove)="move($event)">
+            <map-marker [position]="mapPosition" (mapClick)="showMarkerInfo($event)">
+              <div *ngIf="markerInfo" >
+                <strong>Latitude:{{this.panel['Lat']}}</strong> <br/>
+                <strong>Longitude:{{this.panel['Lng']}}</strong> 
+              </div>
+            </map-marker>
 </google-map>
 
 
